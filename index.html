@@ -1245,6 +1245,34 @@
     }
 
 
+
+    .football-icon {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      height: 1.5rem;
+      line-height: 1;
+    }
+
+    .football-icon svg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      flex: 0 0 1.5rem;
+      transform: translateY(0);
+    }
+
+
+    /* Beyond Work — unified icon sizing/alignment */
+    .beyond-icon {
+      height: 1.5rem;
+      min-height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      line-height: 1;
+    }
+
     /* =========================================================
        CONTACT
        ========================================================= */
@@ -1588,6 +1616,374 @@
       80% { transform: translateX(65%) rotate(8deg); }
     }
 
+
+    /* =========================================================
+       ENHANCED VISUAL EFFECTS
+       ========================================================= */
+
+    .hero::before {
+      background-size: 46px 46px;
+      animation: gridDrift 18s linear infinite;
+    }
+
+    .photo-frame {
+      isolation: isolate;
+      animation: portraitFloat 7s ease-in-out infinite;
+    }
+
+    .photo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        rgba(49,92,255,0.85),
+        rgba(117,87,255,0.60),
+        rgba(232,71,174,0.78),
+        rgba(49,92,255,0.75)
+      );
+      background-size: 300% 300%;
+      animation: borderFlow 7s ease infinite;
+      filter: blur(9px);
+      opacity: 0.58;
+    }
+
+    .photo-frame::after {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      z-index: 2;
+      border-radius: 28px 28px 114px 28px;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.34),
+        inset 0 0 40px rgba(117,87,255,0.05);
+      pointer-events: none;
+    }
+
+    .data-network {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0.82;
+    }
+
+    .network-line {
+      position: absolute;
+      height: 1px;
+      transform-origin: left center;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(117,87,255,0.34),
+        rgba(232,71,174,0.28),
+        transparent
+      );
+      animation: linePulse 5s ease-in-out infinite;
+    }
+
+    .network-node {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow:
+        0 0 0 5px rgba(49,92,255,0.07),
+        0 0 20px rgba(49,92,255,0.45);
+      animation: nodePulse 3.2s ease-in-out infinite;
+    }
+
+    .network-node.magenta {
+      background: var(--magenta);
+      box-shadow:
+        0 0 0 5px rgba(232,71,174,0.07),
+        0 0 20px rgba(232,71,174,0.42);
+    }
+
+    .network-node.violet {
+      background: var(--violet);
+      box-shadow:
+        0 0 0 5px rgba(117,87,255,0.07),
+        0 0 20px rgba(117,87,255,0.42);
+    }
+
+    .hero h1 .gradient-text {
+      position: relative;
+      filter: drop-shadow(0 10px 30px rgba(117,87,255,0.10));
+    }
+
+    .hero h1 .gradient-text::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 28%,
+        rgba(255,255,255,0.65) 48%,
+        transparent 68%
+      );
+      transform: translateX(-120%);
+      animation: textSheen 6.5s ease-in-out infinite;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .glass-card {
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow:
+        0 18px 55px rgba(50,42,120,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.85);
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.34),
+        transparent 45%
+      );
+      pointer-events: none;
+    }
+
+    .card,
+    .project-card,
+    .connect-card {
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .card,
+    .project-card {
+      transition:
+        transform 0.22s ease-out,
+        box-shadow 0.28s ease,
+        border-color 0.28s ease;
+    }
+
+    .card:hover {
+      box-shadow:
+        0 30px 75px rgba(65,54,140,0.16);
+    }
+
+    .project-card:hover {
+      box-shadow:
+        0 28px 75px rgba(0,0,0,0.28),
+        0 0 0 1px rgba(117,87,255,0.16);
+    }
+
+    .card .card-shine,
+    .project-card .card-shine {
+      position: absolute;
+      inset: -50%;
+      z-index: 2;
+      background: linear-gradient(
+        115deg,
+        transparent 42%,
+        rgba(255,255,255,0.23) 50%,
+        transparent 58%
+      );
+      transform: translateX(-65%) rotate(8deg);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .card:hover .card-shine,
+    .project-card:hover .card-shine {
+      opacity: 1;
+      animation: cardSheen 1.15s ease forwards;
+    }
+
+    .section-title {
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 68px;
+      height: 4px;
+      margin-top: 18px;
+      border-radius: 999px;
+      background: var(--gradient);
+      background-size: 220% 220%;
+      animation: gradientShift 5s ease infinite;
+      box-shadow: 0 8px 24px rgba(117,87,255,0.18);
+    }
+
+    header {
+      transition:
+        min-height 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    header.scrolled {
+      background: rgba(252,250,247,0.93);
+      box-shadow: 0 12px 35px rgba(39,31,91,0.08);
+      border-color: rgba(117,87,255,0.10);
+    }
+
+    .btn,
+    .connect-card {
+      --magnet-x: 0px;
+      --magnet-y: 0px;
+    }
+
+    .btn {
+      transform: translate3d(var(--magnet-x), var(--magnet-y), 0);
+    }
+
+    .orbit {
+      animation: orbitBreath 8s ease-in-out infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      animation: nodeOrbitPulse 2.8s ease-in-out infinite;
+    }
+
+    .data-dots {
+      animation: dotsFloat 6s ease-in-out infinite;
+    }
+
+    .connect-card-primary {
+      background-size: 220% 220%;
+      animation: connectGradient 7s ease infinite;
+    }
+
+    .connect-card:hover {
+      transform:
+        translate3d(var(--magnet-x), var(--magnet-y), 0)
+        translateY(-7px)
+        scale(1.012);
+    }
+
+    .scroll-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 22px;
+      z-index: 8;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      transform: translateX(-50%);
+      color: rgba(23,21,43,0.50);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .scroll-cue-line {
+      width: 1px;
+      height: 42px;
+      overflow: hidden;
+      background: rgba(117,87,255,0.14);
+    }
+
+    .scroll-cue-line::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 45%;
+      background: var(--gradient);
+      animation: scrollCue 1.7s ease-in-out infinite;
+    }
+
+    @keyframes gridDrift {
+      from { background-position: 0 0, 0 0; }
+      to { background-position: 46px 46px, 46px 46px; }
+    }
+
+    @keyframes borderFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes portraitFloat {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -7px; }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.78; }
+      50% { transform: scale(1.55); opacity: 1; }
+    }
+
+    @keyframes linePulse {
+      0%, 100% { opacity: 0.25; }
+      50% { opacity: 0.85; }
+    }
+
+    @keyframes textSheen {
+      0%, 65%, 100% { transform: translateX(-120%); }
+      82% { transform: translateX(120%); }
+    }
+
+    @keyframes cardSheen {
+      from { transform: translateX(-65%) rotate(8deg); }
+      to { transform: translateX(65%) rotate(8deg); }
+    }
+
+    @keyframes orbitBreath {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.82; }
+      50% { transform: translate(-50%, -50%) scale(1.035); opacity: 1; }
+    }
+
+    @keyframes nodeOrbitPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.45); }
+    }
+
+    @keyframes dotsFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-9px); }
+    }
+
+    @keyframes connectGradient {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes scrollCue {
+      0% { transform: translateY(-120%); }
+      100% { transform: translateY(230%); }
+    }
+
+    @media (min-width: 900px) {
+      .scroll-cue {
+        display: flex;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero::before,
+      .photo-frame,
+      .photo-frame::before,
+      .network-line,
+      .network-node,
+      .hero h1 .gradient-text::after,
+      .orbit,
+      .orbit::before,
+      .orbit::after,
+      .data-dots,
+      .connect-card-primary,
+      .scroll-cue-line::after {
+        animation: none !important;
+      }
+    }
+
+
     /* =========================================================
        FOOTER
        ========================================================= */
@@ -1921,6 +2317,47 @@
       }
     }
 
+    /* =========================================================
+       HERO LABELS — FRONT LAYER FIX
+       ========================================================= */
+    .photo-frame {
+      z-index: 3;
+      transform: rotate(1.2deg) translateZ(0);
+    }
+
+    .glass-card {
+      z-index: 30;
+      transform: translateZ(90px);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.95);
+      box-shadow: 0 18px 55px rgba(65,54,140,0.20);
+      isolation: isolate;
+    }
+
+    .glass-one {
+      left: -58px;
+      top: 18%;
+    }
+
+    .glass-two {
+      right: -48px;
+      bottom: 17%;
+    }
+
+    @media (max-width: 1099px) and (min-width: 768px) {
+      .glass-one { left: -28px; }
+      .glass-two { right: -28px; }
+    }
+
+    @media (max-width: 767px) {
+      .glass-card {
+        transform: translateZ(70px);
+        padding: 12px 15px;
+      }
+      .glass-one { left: -8px; top: 14%; }
+      .glass-two { right: -8px; bottom: 12%; }
+    }
+
   </style>
 
 </head>
@@ -2004,6 +2441,22 @@
 
   <div class="hero-glow"></div>
   <div class="hero-glow-two"></div>
+
+
+  <div class="data-network" aria-hidden="true">
+    <span class="network-node" style="left:8%; top:24%; animation-delay:-0.4s;"></span>
+    <span class="network-node violet" style="left:22%; top:16%; animation-delay:-1.3s;"></span>
+    <span class="network-node magenta" style="left:37%; top:30%; animation-delay:-2.0s;"></span>
+    <span class="network-node violet" style="left:58%; top:18%; animation-delay:-0.8s;"></span>
+    <span class="network-node" style="left:76%; top:28%; animation-delay:-1.7s;"></span>
+    <span class="network-node magenta" style="left:90%; top:14%; animation-delay:-2.5s;"></span>
+
+    <span class="network-line" style="left:8%; top:24%; width:15%; transform:rotate(-18deg); animation-delay:-0.5s;"></span>
+    <span class="network-line" style="left:22%; top:16%; width:18%; transform:rotate(26deg); animation-delay:-1.4s;"></span>
+    <span class="network-line" style="left:37%; top:30%; width:24%; transform:rotate(-18deg); animation-delay:-2.1s;"></span>
+    <span class="network-line" style="left:58%; top:18%; width:20%; transform:rotate(17deg); animation-delay:-0.9s;"></span>
+    <span class="network-line" style="left:76%; top:28%; width:16%; transform:rotate(-25deg); animation-delay:-1.8s;"></span>
+  </div>
   <div class="hero-pointer-glow" aria-hidden="true"></div>
 
 
@@ -2240,6 +2693,12 @@
 
   </div>
 
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scroll to explore</span>
+    <span class="scroll-cue-line"></span>
+  </div>
+
 </section>
 
 
@@ -2365,6 +2824,8 @@
 
       <article class="card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <div class="card-number">01</div>
 
         <h3>
@@ -2382,6 +2843,8 @@
 
       <article class="card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <div class="card-number">02</div>
 
         <h3>
@@ -2397,6 +2860,8 @@
 
 
       <article class="card reveal">
+
+        <span class="card-shine" aria-hidden="true"></span>
 
         <div class="card-number">03</div>
 
@@ -2415,6 +2880,8 @@
 
       <article class="card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <div class="card-number">04</div>
 
         <h3>
@@ -2432,6 +2899,8 @@
 
       <article class="card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <div class="card-number">05</div>
 
         <h3>
@@ -2448,6 +2917,8 @@
 
 
       <article class="card reveal">
+
+        <span class="card-shine" aria-hidden="true"></span>
 
         <div class="card-number">06</div>
 
@@ -2513,6 +2984,8 @@
 
       <article class="project-card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <span class="project-type">
           Employee Listening
         </span>
@@ -2575,6 +3048,8 @@
 
       <article class="project-card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <span class="project-type">
           Culture
         </span>
@@ -2636,6 +3111,8 @@
 
       <article class="project-card reveal">
 
+        <span class="card-shine" aria-hidden="true"></span>
+
         <span class="project-type">
           Future of Work
         </span>
@@ -2696,6 +3173,8 @@
 
 
       <article class="project-card reveal">
+
+        <span class="card-shine" aria-hidden="true"></span>
 
         <span class="project-type">
           AI + People
@@ -2935,8 +3414,68 @@
 
       <div class="beyond-item reveal">
 
-        <div class="beyond-icon">
-          ⚽
+        <div class="beyond-icon football-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 64 64"
+            width="28"
+            height="28"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+          >
+            <circle cx="32" cy="32" r="29" fill="#ffffff" stroke="#111111" stroke-width="3"/>
+
+            <!-- Centro -->
+            <polygon
+              points="32,19 41,25 38,36 26,36 23,25"
+              fill="#111111"
+            />
+
+            <!-- Paneles negros exteriores -->
+            <polygon
+              points="15,12 25,8 28,17 21,24 13,21"
+              fill="#111111"
+            />
+            <polygon
+              points="49,12 39,8 36,17 43,24 51,21"
+              fill="#111111"
+            />
+            <polygon
+              points="10,39 12,27 21,26 24,37 17,44"
+              fill="#111111"
+            />
+            <polygon
+              points="54,39 52,27 43,26 40,37 47,44"
+              fill="#111111"
+            />
+            <polygon
+              points="24,55 18,46 26,39 38,39 46,46 40,55 32,59"
+              fill="#111111"
+            />
+
+            <!-- Costuras -->
+            <g
+              fill="none"
+              stroke="#111111"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M23 25 21 24"/>
+              <path d="M41 25 43 24"/>
+              <path d="M26 36 24 37"/>
+              <path d="M38 36 40 37"/>
+
+              <path d="M28 17 32 19 36 17"/>
+              <path d="M13 21 12 27"/>
+              <path d="M51 21 52 27"/>
+              <path d="M17 44 18 46"/>
+              <path d="M47 44 46 46"/>
+
+              <path d="M25 8 32 5 39 8"/>
+              <path d="M10 39 14 49 24 55"/>
+              <path d="M54 39 50 49 40 55"/>
+            </g>
+          </svg>
         </div>
 
         <h3>
@@ -3014,7 +3553,7 @@
       <div class="connect-actions reveal">
 
         <a
-          href="https://www.linkedin.com/in/nathaly-l%C3%B3pez-ram%C3%B3n-/"
+          href="https://pe.linkedin.com/in/nathaly-l%C3%B3pez-ram%C3%B3n-"
           target="_blank"
           rel="noopener noreferrer"
           class="connect-card connect-card-primary"
@@ -3269,6 +3808,62 @@
         const rect = card.getBoundingClientRect();
         card.style.setProperty("--spot-x", `${event.clientX - rect.left}px`);
         card.style.setProperty("--spot-y", `${event.clientY - rect.top}px`);
+      });
+    });
+  }
+
+
+  /* ENHANCED HEADER STATE */
+
+  const siteHeader = document.querySelector("header");
+
+  const updateHeaderState = () => {
+    if (!siteHeader) return;
+    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
+  };
+
+  window.addEventListener("scroll", updateHeaderState, { passive: true });
+  updateHeaderState();
+
+
+  /* 3D CARD TILT */
+
+  if (motionAllowed && finePointer) {
+    document.querySelectorAll(".card, .project-card").forEach(card => {
+      card.addEventListener("pointermove", event => {
+        const rect = card.getBoundingClientRect();
+        const relX = (event.clientX - rect.left) / rect.width - 0.5;
+        const relY = (event.clientY - rect.top) / rect.height - 0.5;
+
+        card.style.transform =
+          `perspective(900px) rotateX(${relY * -5}deg) rotateY(${relX * 6}deg) translateY(-5px)`;
+      });
+
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
+
+
+  /* MAGNETIC BUTTONS + CONNECT CARDS */
+
+  if (motionAllowed && finePointer) {
+    document.querySelectorAll(".btn, .connect-card").forEach(element => {
+      element.addEventListener("pointermove", event => {
+        const rect = element.getBoundingClientRect();
+        const x = event.clientX - (rect.left + rect.width / 2);
+        const y = event.clientY - (rect.top + rect.height / 2);
+
+        const strength = element.classList.contains("connect-card") ? 0.035 : 0.08;
+
+        element.style.setProperty("--magnet-x", `${x * strength}px`);
+        element.style.setProperty("--magnet-y", `${y * strength}px`);
+      });
+
+      element.addEventListener("pointerleave", () => {
+        element.style.setProperty("--magnet-x", "0px");
+        element.style.setProperty("--magnet-y", "0px");
       });
     });
   }
