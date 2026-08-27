@@ -1123,6 +1123,253 @@
     }
 
 
+
+    /* =========================================================
+       PROJECTS — VISUAL CASE STUDY UPGRADE
+       ========================================================= */
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-visual {
+      position: relative;
+      min-height: 150px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      isolation: isolate;
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .project-visual::after {
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.02) 0%,
+          rgba(9,8,24,0.10) 68%,
+          rgba(9,8,24,0.34) 100%
+        );
+      z-index: 4;
+    }
+
+    .project-visual-icon {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 6;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.88);
+      box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+      color: var(--violet);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .project-visual-icon svg {
+      width: 21px;
+      height: 21px;
+      display: block;
+    }
+
+    .project-card-body {
+      padding: 30px 32px 34px;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .project-card-body .project-type {
+      margin-bottom: 18px;
+    }
+
+    /* Culture: flowing ribbons */
+    .project-visual-culture {
+      background:
+        radial-gradient(circle at 22% 35%, rgba(117,87,255,0.95), transparent 28%),
+        radial-gradient(circle at 72% 58%, rgba(49,92,255,0.72), transparent 34%),
+        linear-gradient(135deg, #15112f 0%, #37247e 48%, #6d56ff 100%);
+    }
+
+    .project-visual-culture .ribbon {
+      position: absolute;
+      left: -12%;
+      width: 125%;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.22);
+      filter: blur(0.2px);
+      opacity: 0.75;
+      transform: rotate(-8deg);
+      animation: ribbonFlow 7s ease-in-out infinite;
+    }
+
+    .project-visual-culture .ribbon:nth-child(2) {
+      top: 40%;
+      animation-delay: -2.5s;
+    }
+
+    .project-visual-culture .ribbon:nth-child(3) {
+      top: 58%;
+      animation-delay: -4s;
+    }
+
+    .project-visual-culture .ribbon:nth-child(4) {
+      top: 74%;
+      animation-delay: -1s;
+    }
+
+    /* Data: nodes and mesh */
+    .project-visual-data {
+      background:
+        radial-gradient(circle at 20% 25%, rgba(49,92,255,0.72), transparent 28%),
+        radial-gradient(circle at 78% 65%, rgba(232,71,174,0.70), transparent 30%),
+        linear-gradient(135deg, #25155f 0%, #7449d8 50%, #d53fa4 100%);
+    }
+
+    .project-mesh {
+      position: absolute;
+      inset: 0;
+      opacity: 0.82;
+      background-image:
+        radial-gradient(circle at center, rgba(255,255,255,0.88) 0 1.2px, transparent 1.4px);
+      background-size: 34px 34px;
+      animation: meshDrift 11s linear infinite;
+    }
+
+    .project-mesh::before,
+    .project-mesh::after {
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 120%;
+      left: -10%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.42),
+        transparent
+      );
+      transform: rotate(-10deg);
+    }
+
+    .project-mesh::before { top: 42%; }
+    .project-mesh::after { top: 64%; transform: rotate(8deg); }
+
+    /* Future of work: neon waves */
+    .project-visual-future {
+      background:
+        radial-gradient(circle at 15% 30%, rgba(49,92,255,0.75), transparent 26%),
+        radial-gradient(circle at 78% 30%, rgba(255,107,122,0.70), transparent 28%),
+        linear-gradient(135deg, #3d276f 0%, #a345c7 48%, #ff6b7a 100%);
+    }
+
+    .future-wave {
+      position: absolute;
+      left: -12%;
+      width: 126%;
+      height: 48px;
+      border-top: 2px solid rgba(255,255,255,0.26);
+      border-radius: 50%;
+      transform: rotate(-3deg);
+      animation: futureWave 6s ease-in-out infinite;
+    }
+
+    .future-wave:nth-child(2) { top: 38%; animation-delay: -1.8s; }
+    .future-wave:nth-child(3) { top: 55%; animation-delay: -3.6s; }
+    .future-wave:nth-child(4) { top: 72%; animation-delay: -0.8s; }
+
+    /* AI: particles / neural glow */
+    .project-visual-ai {
+      background:
+        radial-gradient(circle at 28% 36%, rgba(117,87,255,0.95), transparent 24%),
+        radial-gradient(circle at 72% 48%, rgba(232,71,174,0.85), transparent 28%),
+        linear-gradient(135deg, #28145b 0%, #7b2db9 48%, #e847ae 100%);
+    }
+
+    .ai-particle {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.92);
+      box-shadow: 0 0 16px rgba(255,255,255,0.75);
+      animation: aiFloat 5.2s ease-in-out infinite;
+    }
+
+    .ai-particle.p1 { left: 20%; top: 28%; }
+    .ai-particle.p2 { left: 38%; top: 58%; animation-delay: -1.7s; }
+    .ai-particle.p3 { left: 62%; top: 26%; animation-delay: -3.1s; }
+    .ai-particle.p4 { left: 76%; top: 62%; animation-delay: -2.2s; }
+    .ai-particle.p5 { left: 50%; top: 42%; animation-delay: -4.1s; }
+
+    .ai-link {
+      position: absolute;
+      height: 1px;
+      width: 58%;
+      left: 21%;
+      top: 49%;
+      transform: rotate(-8deg);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.46),
+        transparent
+      );
+      animation: aiLinkPulse 4.8s ease-in-out infinite;
+    }
+
+    @keyframes ribbonFlow {
+      0%, 100% { transform: translateX(0) rotate(-8deg) scaleX(1); opacity: 0.52; }
+      50% { transform: translateX(5%) rotate(-5deg) scaleX(1.05); opacity: 0.88; }
+    }
+
+    @keyframes meshDrift {
+      from { background-position: 0 0; }
+      to { background-position: 34px 34px; }
+    }
+
+    @keyframes futureWave {
+      0%, 100% { transform: translateX(0) rotate(-3deg) scaleY(1); opacity: 0.45; }
+      50% { transform: translateX(4%) rotate(1deg) scaleY(1.12); opacity: 0.82; }
+    }
+
+    @keyframes aiFloat {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.70; }
+      50% { transform: translate3d(8px,-9px,0) scale(1.35); opacity: 1; }
+    }
+
+    @keyframes aiLinkPulse {
+      0%, 100% { opacity: 0.22; }
+      50% { opacity: 0.72; }
+    }
+
+    @media (max-width: 767px) {
+      .project-visual {
+        min-height: 125px;
+      }
+
+      .project-card-body {
+        padding: 26px 24px 28px;
+      }
+    }
+
+
     /* =========================================================
        HOW I THINK
        ========================================================= */
@@ -1251,6 +1498,7 @@
       align-items: center;
       justify-content: flex-start;
       height: 1.5rem;
+      min-height: 1.5rem;
       line-height: 1;
     }
 
@@ -1259,7 +1507,6 @@
       width: 1.5rem;
       height: 1.5rem;
       flex: 0 0 1.5rem;
-      transform: translateY(0);
     }
 
 
@@ -1271,6 +1518,278 @@
       align-items: center;
       justify-content: flex-start;
       line-height: 1;
+    }
+
+
+    /* =========================================================
+       BEYOND WORK — EDITORIAL BENTO
+       ========================================================= */
+
+    .beyond {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          140deg,
+          #f8f4ff 0%,
+          #fff8fc 48%,
+          #f5f8ff 100%
+        );
+    }
+
+    .beyond .section-description {
+      max-width: 760px;
+    }
+
+    .beyond-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .beyond-item {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      padding: 26px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: 0 18px 50px rgba(59,45,125,0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .beyond-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 64px rgba(59,45,125,0.13);
+      border-color: rgba(117,87,255,0.18);
+    }
+
+    .beyond-item h3 {
+      font-size: clamp(1.25rem, 3vw, 1.65rem);
+      margin-bottom: 6px;
+      letter-spacing: -0.03em;
+    }
+
+    .beyond-item p {
+      max-width: 320px;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .beyond-icon {
+      position: relative;
+      z-index: 3;
+      width: 2rem;
+      height: 2rem;
+      min-height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 34px;
+    }
+
+    .football-icon svg {
+      width: 1.65rem;
+      height: 1.65rem;
+      flex: 0 0 1.65rem;
+    }
+
+    .beyond-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Travel route */
+    .beyond-travel::before {
+      content: "";
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 48%;
+      height: 90px;
+      border: 1.5px dashed rgba(49,92,255,0.16);
+      border-color: rgba(49,92,255,0.18) transparent transparent transparent;
+      border-radius: 50%;
+      transform: rotate(-9deg);
+      transition: transform 0.5s ease;
+    }
+
+    .beyond-travel::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      right: 18%;
+      top: 34%;
+      background: var(--blue);
+      box-shadow: 0 0 18px rgba(49,92,255,0.35);
+      opacity: 0.55;
+    }
+
+    .beyond-travel:hover::before {
+      transform: rotate(-5deg) translateX(10px);
+    }
+
+    /* Music waveform */
+    .beyond-music .micro-wave {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      top: 44%;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      opacity: 0.18;
+    }
+
+    .beyond-music .micro-wave span {
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(var(--violet), var(--magenta));
+      animation: musicPulse 2.6s ease-in-out infinite;
+    }
+
+    .beyond-music .micro-wave span:nth-child(1) { height: 18px; }
+    .beyond-music .micro-wave span:nth-child(2) { height: 36px; animation-delay: -0.3s; }
+    .beyond-music .micro-wave span:nth-child(3) { height: 24px; animation-delay: -0.6s; }
+    .beyond-music .micro-wave span:nth-child(4) { height: 48px; animation-delay: -0.9s; }
+    .beyond-music .micro-wave span:nth-child(5) { height: 30px; animation-delay: -1.2s; }
+    .beyond-music .micro-wave span:nth-child(6) { height: 42px; animation-delay: -1.5s; }
+    .beyond-music .micro-wave span:nth-child(7) { height: 20px; animation-delay: -1.8s; }
+
+    /* Football field lines */
+    .beyond-football::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(23,21,43,0.08);
+      border-radius: 18px;
+      opacity: 0.65;
+    }
+
+    .beyond-football::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 18px;
+      bottom: 18px;
+      width: 1px;
+      background: rgba(23,21,43,0.08);
+      transform: translateX(-50%);
+    }
+
+    .football-circle {
+      position: absolute;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 1px solid rgba(23,21,43,0.08);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.75;
+    }
+
+    /* Be Present ripple */
+    .beyond-present::before,
+    .beyond-present::after {
+      content: "";
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 1px solid rgba(117,87,255,0.12);
+      right: 12%;
+      top: 18%;
+      animation: presentRipple 5s ease-in-out infinite;
+    }
+
+    .beyond-present::after {
+      width: 82px;
+      height: 82px;
+      right: 18%;
+      top: 28%;
+      animation-delay: -2.2s;
+    }
+
+    .present-dot {
+      position: absolute;
+      right: 26%;
+      top: 42%;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--magenta);
+      box-shadow: 0 0 18px rgba(232,71,174,0.32);
+      opacity: 0.65;
+    }
+
+    @keyframes musicPulse {
+      0%, 100% { transform: scaleY(0.78); opacity: 0.55; }
+      50% { transform: scaleY(1.18); opacity: 1; }
+    }
+
+    @keyframes presentRipple {
+      0%, 100% { transform: scale(0.95); opacity: 0.28; }
+      50% { transform: scale(1.08); opacity: 0.6; }
+    }
+
+    @media (min-width: 768px) {
+      .beyond-grid {
+        grid-template-columns: 1.25fr 0.75fr;
+        grid-template-areas:
+          "travel music"
+          "football present";
+        gap: 18px;
+      }
+
+      .beyond-travel { grid-area: travel; min-height: 250px; }
+      .beyond-music { grid-area: music; min-height: 250px; }
+      .beyond-football { grid-area: football; min-height: 220px; }
+      .beyond-present { grid-area: present; min-height: 220px; }
+    }
+
+    @media (min-width: 1050px) {
+      .beyond-grid {
+        grid-template-columns: 1.15fr 0.85fr;
+      }
+
+      .beyond-travel,
+      .beyond-present {
+        padding: 30px;
+      }
+
+      .beyond-music,
+      .beyond-football {
+        padding: 28px;
+      }
+    }
+
+
+
+    /* Beyond Work — final icon parity */
+    .football-icon svg,
+    .present-icon svg {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      flex: 0 0 1.5rem;
     }
 
     /* =========================================================
@@ -2983,10 +3502,24 @@
 
 
       <article class="project-card reveal">
+  <span class="card-shine" aria-hidden="true"></span>
 
-        <span class="card-shine" aria-hidden="true"></span>
-
-        <span class="project-type">
+        <div class="project-visual project-visual-culture" aria-hidden="true">
+          <div class="project-visual-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/>
+              <circle cx="9.5" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87M16.5 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <span class="ribbon" style="top:22%;"></span>
+          <span class="ribbon"></span>
+          <span class="ribbon"></span>
+          <span class="ribbon"></span>
+        </div>
+        
+  <div class="project-card-body">
+<span class="project-type">
           Employee Listening
         </span>
 
@@ -3041,16 +3574,25 @@
           </div>
 
         </div>
-
-      </article>
+  </div>
+</article>
 
 
 
       <article class="project-card reveal">
+  <span class="card-shine" aria-hidden="true"></span>
 
-        <span class="card-shine" aria-hidden="true"></span>
-
-        <span class="project-type">
+        <div class="project-visual project-visual-data" aria-hidden="true">
+          <div class="project-visual-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M4 20V10M10 20V4M16 20v-7M22 20V7"/>
+            </svg>
+          </div>
+          <div class="project-mesh"></div>
+        </div>
+        
+  <div class="project-card-body">
+<span class="project-type">
           Culture
         </span>
 
@@ -3104,16 +3646,28 @@
           </div>
 
         </div>
-
-      </article>
+  </div>
+</article>
 
 
 
       <article class="project-card reveal">
+  <span class="card-shine" aria-hidden="true"></span>
 
-        <span class="card-shine" aria-hidden="true"></span>
-
-        <span class="project-type">
+        <div class="project-visual project-visual-future" aria-hidden="true">
+          <div class="project-visual-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="m13 2-3 7H3l6 4-2 8 6-5 6 5-2-8 4-4h-7z"/>
+            </svg>
+          </div>
+          <span class="future-wave" style="top:22%;"></span>
+          <span class="future-wave"></span>
+          <span class="future-wave"></span>
+          <span class="future-wave"></span>
+        </div>
+        
+  <div class="project-card-body">
+<span class="project-type">
           Future of Work
         </span>
 
@@ -3167,16 +3721,31 @@
           </div>
 
         </div>
-
-      </article>
+  </div>
+</article>
 
 
 
       <article class="project-card reveal">
+  <span class="card-shine" aria-hidden="true"></span>
 
-        <span class="card-shine" aria-hidden="true"></span>
-
-        <span class="project-type">
+        <div class="project-visual project-visual-ai" aria-hidden="true">
+          <div class="project-visual-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>
+              <circle cx="12" cy="12" r="4"/>
+            </svg>
+          </div>
+          <span class="ai-particle p1"></span>
+          <span class="ai-particle p2"></span>
+          <span class="ai-particle p3"></span>
+          <span class="ai-particle p4"></span>
+          <span class="ai-particle p5"></span>
+          <span class="ai-link"></span>
+        </div>
+        
+  <div class="project-card-body">
+<span class="project-type">
           AI + People
         </span>
 
@@ -3229,8 +3798,8 @@
           </div>
 
         </div>
-
-      </article>
+  </div>
+</article>
 
 
     </div>
@@ -3354,7 +3923,6 @@
       Beyond Work
     </span>
 
-
     <h2 class="section-title reveal">
 
       Curiosity doesn't stop
@@ -3365,7 +3933,6 @@
 
     </h2>
 
-
     <p class="section-description reveal">
 
       Parte de mi forma de entender a las personas
@@ -3374,138 +3941,74 @@
 
     </p>
 
-
     <div class="beyond-grid">
 
+      <article class="beyond-item beyond-travel reveal">
 
-      <div class="beyond-item reveal">
-
-        <div class="beyond-icon">
+        <div class="beyond-icon" aria-hidden="true">
           ✈
         </div>
 
-        <h3>
-          Travel
-        </h3>
+        <div class="beyond-content">
+          <h3>Travel</h3>
+          <p>New places, new perspectives.</p>
+        </div>
 
-        <p>
-          Nuevos lugares y culturas.
-        </p>
+      </article>
 
-      </div>
+      <article class="beyond-item beyond-music reveal">
 
-
-      <div class="beyond-item reveal">
-
-        <div class="beyond-icon">
+        <div class="beyond-icon" aria-hidden="true">
           ♫
         </div>
 
-        <h3>
-          Music
-        </h3>
+        <div class="micro-wave" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
 
-        <p>
-          Energía, conexión y momentos.
-        </p>
+        <div class="beyond-content">
+          <h3>Music</h3>
+          <p>Energy, connection and moments.</p>
+        </div>
 
-      </div>
+      </article>
 
-
-      <div class="beyond-item reveal">
+      <article class="beyond-item beyond-football reveal">
 
         <div class="beyond-icon football-icon" aria-hidden="true">
-          <svg
-            viewBox="0 0 64 64"
-            width="28"
-            height="28"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-          >
-            <circle cx="32" cy="32" r="29" fill="#ffffff" stroke="#111111" stroke-width="3"/>
-
-            <!-- Centro -->
-            <polygon
-              points="32,19 41,25 38,36 26,36 23,25"
-              fill="#111111"
-            />
-
-            <!-- Paneles negros exteriores -->
-            <polygon
-              points="15,12 25,8 28,17 21,24 13,21"
-              fill="#111111"
-            />
-            <polygon
-              points="49,12 39,8 36,17 43,24 51,21"
-              fill="#111111"
-            />
-            <polygon
-              points="10,39 12,27 21,26 24,37 17,44"
-              fill="#111111"
-            />
-            <polygon
-              points="54,39 52,27 43,26 40,37 47,44"
-              fill="#111111"
-            />
-            <polygon
-              points="24,55 18,46 26,39 38,39 46,46 40,55 32,59"
-              fill="#111111"
-            />
-
-            <!-- Costuras -->
-            <g
-              fill="none"
-              stroke="#111111"
-              stroke-width="1.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M23 25 21 24"/>
-              <path d="M41 25 43 24"/>
-              <path d="M26 36 24 37"/>
-              <path d="M38 36 40 37"/>
-
-              <path d="M28 17 32 19 36 17"/>
-              <path d="M13 21 12 27"/>
-              <path d="M51 21 52 27"/>
-              <path d="M17 44 18 46"/>
-              <path d="M47 44 46 46"/>
-
-              <path d="M25 8 32 5 39 8"/>
-              <path d="M10 39 14 49 24 55"/>
-              <path d="M54 39 50 49 40 55"/>
-            </g>
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#17152b">
+            <path d="M12 21s-7.2-4.35-9.55-8.23C.45 9.48 1.55 5.4 5.15 4.25c2.15-.69 4.35.1 5.65 1.83L12 7.65l1.2-1.57c1.3-1.73 3.5-2.52 5.65-1.83 3.6 1.15 4.7 5.23 2.7 8.52C19.2 16.65 12 21 12 21Z"/>
           </svg>
         </div>
 
-        <h3>
-          Football
-        </h3>
+        <span class="football-circle" aria-hidden="true"></span>
 
-        <p>
-          Pasión, equipo y competencia.
-        </p>
-
-      </div>
-
-
-      <div class="beyond-item reveal">
-
-        <div class="beyond-icon">
-          ✦
+        <div class="beyond-content">
+          <h3>Football</h3>
+          <p>Passion, teamwork and competition.</p>
         </div>
 
-        <h3>
-          First Times
-        </h3>
+      </article>
 
-        <p>
-          Siempre buscando algo nuevo
-          por descubrir.
-        </p>
+      <article class="beyond-item beyond-present reveal">
 
-      </div>
+        <div class="beyond-icon present-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+               fill="#ffffff" stroke="#17152b" stroke-width="1.7"
+               stroke-linejoin="round">
+            <path d="M12 2.8c.85 5.55 3.65 8.35 9.2 9.2-5.55.85-8.35 3.65-9.2 9.2-.85-5.55-3.65-8.35-9.2-9.2 5.55-.85 8.35-3.65 9.2-9.2Z"/>
+          </svg>
+        </div>
 
+        <span class="present-dot" aria-hidden="true"></span>
+
+        <div class="beyond-content">
+          <h3>Be Present</h3>
+          <p>Making every moment count.</p>
+        </div>
+
+      </article>
 
     </div>
 
