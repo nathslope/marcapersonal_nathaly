@@ -2697,13 +2697,7 @@
         align-items:
           center;
       }
-
-      .beyond-grid {
-        grid-template-columns:
-          repeat(4,1fr);
-      }
-
-      .contact-grid {
+.contact-grid {
         grid-template-columns:
           1fr 0.85fr;
 
@@ -2875,6 +2869,68 @@
       }
       .glass-one { left: -8px; top: 14%; }
       .glass-two { right: -8px; bottom: 12%; }
+    }
+
+  
+    /* =========================================================
+       BEYOND WORK — FINAL RESPONSIVE OVERRIDE
+       Authoritative rules placed last to avoid legacy conflicts
+       ========================================================= */
+
+    #beyond .beyond-grid {
+      width: 100%;
+      max-width: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    #beyond .beyond-item {
+      width: 100%;
+      min-width: 0;
+    }
+
+    @media (min-width: 640px) {
+      #beyond .beyond-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas:
+          "travel music"
+          "football present";
+        gap: 18px;
+      }
+
+      #beyond .beyond-travel   { grid-area: travel; }
+      #beyond .beyond-music    { grid-area: music; }
+      #beyond .beyond-football { grid-area: football; }
+      #beyond .beyond-present  { grid-area: present; }
+    }
+
+    @media (min-width: 960px) {
+      #beyond .beyond-grid {
+        grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+        grid-template-areas:
+          "travel music"
+          "football present";
+        gap: 18px;
+      }
+
+      #beyond .beyond-travel,
+      #beyond .beyond-music {
+        min-height: 250px;
+      }
+
+      #beyond .beyond-football,
+      #beyond .beyond-present {
+        min-height: 220px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      #beyond .beyond-grid {
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 20px;
+      }
     }
 
   </style>
